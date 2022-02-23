@@ -1,0 +1,706 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+  }
+body{
+    background-color: black;
+}
+.scroll-lock{
+    overflow: hidden;
+}
+header{
+    z-index: 4;
+    position: fixed;
+    height: 9vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease-in;
+}
+header li{
+    list-style: none;
+}
+nav{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: 0 1.2em;
+}
+.shop-box::-webkit-scrollbar-track{
+    background-color: red;
+}
+a{
+    text-decoration: none;
+}
+.left-nav,.right-nav{
+    display: flex;
+    gap: 1.2em;
+}
+.nav-button{
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.nav-links{
+    display: none;
+}
+.nav-button div{
+    display: none;
+}
+.nav-button p{
+    background-color: white;
+    width: 1.2em;
+    height: 2px;
+}
+.nav-menu{
+    padding-top: 15vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    transform: translateX(-100%);
+    opacity: 0;
+    position: absolute;
+    padding-left: 1.2em;
+    justify-content: flex-start;
+    top: 9vh;
+    left: 0;
+    gap: 1em;
+    background-color: rgb(33, 33, 33);
+    width: 90%;
+    height: 100vh;
+    overflow-y: scroll;
+    transition: transform 0.3s ease-in ,opacity 0.3s ease-in;
+}
+.nav-menu a{
+    text-decoration: none;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+}
+.nav-opn{
+    transform: translateX(0);
+    opacity: 1;
+}
+.shadow{
+    z-index: 3;
+    position: absolute;
+    width: 100%;
+    background-color: black;
+    height: 100vh;
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+}
+.shadow-on{
+    opacity: 0.8;
+}
+.nav-opn-header{
+    transform: translateY(-100%);
+}
+.nav-top{
+    position: absolute;
+    top: 0;
+    left: 5%;
+    width: 95%;
+    height: 9vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 1.2em;
+}
+.nav-top img{
+    margin: 0 auto;
+    width: 5em;
+    height: 3em;
+}
+.close-btn{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    gap: 5px;
+}
+.close-btn p{
+    background-color: white;
+    width: 1.2em;
+    border-radius: 100vh;
+    height: 2px;
+}
+.close-btn p:first-of-type{
+    transform: rotate(45deg) translateY(200%);
+}
+.close-btn p:last-of-type{
+    transform: rotate(-45deg) translateY(-250%) translateX(4%);
+}
+.item{
+    display: flex;
+    height: 50vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: white;
+    margin-bottom: 2em;
+    font-size: 0.6em;
+}
+.item img{
+    background-color: red;
+    width: 100%;
+    height: 500px;
+    margin-bottom: 1em;
+}
+.item h1{
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
+.item h2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    font-size: 0.8em;
+}
+.opt{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #ffffff20;
+}
+.logo{
+    position: absolute;
+    left: 40%;
+    cursor: pointer;
+}
+.search{
+    position: relative;
+    cursor: pointer;
+}
+.shop{
+    position: relative;
+    cursor: pointer;
+}
+.logo img{
+    width: 5em;
+    height: 3em;
+}
+.search img{
+    width: 1em;
+    height: 1em;
+}
+.shop img{
+    width: 1em;
+    height: 1em;
+}
+.intro{
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    z-index: 1;
+    gap: 1em;
+}
+.intro h1{
+    width: 85%;
+    text-align: center;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.8em;
+    font-weight: bolder ;
+}
+.intro h2{
+    font-size: 1em;
+    font-family: sans-serif;
+    font-weight: lighter;
+}
+.video-bg:last-of-type{
+    display: none;
+}
+.video-bg{
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+.about{
+    padding: 3em 1em;
+    background-color: rgb(247, 247, 247);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+.about h1{
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    font-size: 1.8em;
+    line-height: 1.3;
+    background-image: url("https://content.rolex.com/dam/homepage/cut-out/homepage_cosmograph_daytona-m116503-0004-0001-cut-out_portrait.jpg");
+    background-position: center center;
+    background-attachment: scroll;
+    background-size: cover;
+    background-clip: text;
+    color: transparent;
+}
+.about p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    line-height: 2em;
+}
+.abt-links{
+    align-items: center;
+    display: flex;
+    gap: 1.2em;
+}
+.abt-links a:first-of-type{
+    border: 1px solid rgb(18, 120, 74);
+    border-radius: 50vh;
+    padding: 0.5em 2em;
+}
+.abt-links a{
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color:rgb(18, 120, 74);
+}
+.shop-sctn{
+    background-color: white;
+    padding: 5em 2em;
+    padding-right: 0;
+}
+.shop-sctn a{
+    text-decoration: none;
+    color: rgb(18, 120, 74);
+    font-family: Arial, Helvetica, sans-serif;
+}
+.shop-sctn p{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.shop-box li{
+    list-style: none;
+}
+.shop-box{
+    display: flex;
+    overflow-x: scroll;
+    gap: 0.2em;
+    scroll-snap-align: inline mandatory;
+}
+.shop-box li{
+    width: 80%;
+    height: 60vh;
+}
+.shop-box a{
+    font-size: 0.8em;
+    width: 100%;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
+.shop-box p{
+    font-weight: lighter;
+}
+.shop-box img{
+    width: auto;
+    height: 80%;
+}
+.motorsport{
+    position: relative;
+    padding: 9em 2em;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 67vh;
+}
+.motorsport::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.5;
+    background-image: url(images/motorsport.jpg);
+    background-position: center center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.motorsport p{
+    margin-bottom: 1.5em;
+    font-weight: bold;
+}
+.motorsport h1{
+    font-size: 2em;
+    text-transform: uppercase;
+    font-weight: lighter;
+    margin-bottom: 0.5em;
+}
+.motorsport a{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid white;
+    border-radius: 50vh;
+    padding: 0.5em 2em;
+}
+.share-sctn{
+    background-color: rgb(247, 247, 247);
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-size: 0.7em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    justify-content: center;
+    align-items: center;
+    font-weight: lighter;
+    padding: 5em;
+}
+.social-links{
+    display: flex;
+    gap: 1.5em;
+}
+.social-links a{
+    width: 3em;
+    background-color: white;
+    border-radius: 100vh;
+    padding: 1em;
+}
+.social-links img{
+    width: 100%;
+}
+footer{
+    position: relative;
+    padding: 3em 1em;
+    background-color:rgb(33, 33, 33);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
+    font-weight: bold;
+    padding-bottom: 15vh;
+}
+.footer-top{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5em;
+}
+.footer-top div{
+    cursor: pointer;
+}
+.down-arrow-1,.down-arrow-2{
+    background-color: white;
+    width: 0.8em;
+    height: 3px;
+    border-radius: 100vh;
+}
+.footer-top div:nth-child(2){
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.down-arrow-1{
+    margin-left: 0.2em;
+    transform: rotate(50deg) translateX(20%) translateY(-40%);
+}
+.down-arrow-2{
+    transform: rotate(-50deg) translateX(-20%) translateY(-40%);
+}
+.down-arrow{
+    transition: transform 0.3s ease;
+}
+.down-arrow-rotate{
+    transform: rotate(180deg);
+}
+.acc-opt{
+    z-index: -1;
+    text-transform: uppercase;
+    font-weight: lighter;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.acc-btn{
+    display: flex;
+    margin-top: 0.5em;
+    padding-left: 0.3em;
+    height: 1.8em;
+    width: 3em;
+    align-items: center;
+    border-radius: 100vh;
+    border: 1px solid white;
+}
+.acc-btn p{
+    width: 1em;
+    height: 1em;
+    background-color: white;
+    border-radius: 100vh;
+}
+footer a{
+    text-decoration: none;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+}
+footer li{
+    list-style: none;
+}
+.container{
+    margin-top: 4em;
+}
+.container ul{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.container h3{
+    border-bottom: 1px solid #ffffff20;
+}
+.footer-btm{
+    background-color: rgb(33, 33, 33);
+}
+.acc-show{
+    transform: translateY(0);
+}
+.scroll-up{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 8vh;
+    border-top: 1px solid #ffffff20;
+}
+.scroll-arrow-1,.scroll-arrow-2{
+    width: 1.3em;
+    background-color: white;
+    height: 2px;
+    border-radius: 100vh;
+}
+.scroll-arrow-1{
+    margin-left: 0.2em;
+    transform: rotate(-50deg) translateX(40%) translateY(-40%);
+}
+.scroll-arrow-2{
+    transform: rotate(50deg) translateX(-40%) translateY(-40%);
+}
+@media  (min-width: 900px) {
+    .video-bg:first-of-type{
+        display: none;
+    }
+    .video-bg:last-of-type{
+        display: block;
+    }
+    header{
+        height: 8vh;
+    }
+    .nav-menu{
+        width: 50%;
+        top: 8vh;
+    }
+    .close-btn p{
+        transition: background-color 0.2s ease-out;
+    }
+    .close-btn:hover p{
+        background-color: rgb(175,134, 47);
+    }
+    .opt a{
+        transition: color 0.2s ease-out; 
+    }
+    .opt a:hover{
+        color: rgb(175, 134, 47);
+    }
+    nav{
+        padding: 0 6em;
+        padding-right: 15em;
+    }
+    .nav-links:hover a{
+        color:rgb(18, 120, 74);
+    }
+    .logo img{
+        width: 6.5em;
+        height: 4em;
+    }
+    .logo{
+        left: 48%;
+        cursor: pointer;
+    }
+    .search{
+        position: relative;
+        cursor: pointer;
+    }
+    .right-nav{
+        gap: 7em;
+    }
+    .shop::before{
+        position: absolute;
+        left: 150%;
+        top: -10%;
+        color: white;
+        content: "Your selection";
+        white-space: nowrap;
+        width: 100%;
+        font-size: 1.1em;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .search::before{
+        position: absolute;
+        left: 150%;
+        top: -10%;
+        color: white;
+        content: "Search";
+        width: 100%;
+        font-size: 1.1em;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .abt-links a{
+        transition: color 0.2s ease-out,background-color 0.2s ease-out,opacity 0.2s ease-out;
+    }
+    .abt-links a:hover:first-child{
+        color: white;
+        background-color: rgb(18, 120, 74);
+    }
+    .abt-links a:hover:last-of-type{
+        opacity: 0.5;
+    }
+    .nav-button:hover::before{
+        color: rgb(18, 120, 74);
+    }
+    .nav-button{
+        position: relative;
+        cursor: pointer;
+        justify-content: flex-end;
+        padding-bottom: 0.5em;
+    }
+    .nav-button::before{
+        transition: color 0.2s ease-out;
+        position: absolute;
+        left: 150%;
+        top: 70%;
+        color: white;
+        content: "Menu";
+        width: 100%;
+        font-size: 1.1em;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .nav-button p{
+        transition: background-color 0.2s ease-out;
+        width: 1.5em;
+    }
+    .shop{
+        position: relative;
+        cursor: pointer;
+    }
+    .nav-button:hover p{
+        background-color:rgb(18, 120, 74);
+    }
+    .nav-button{
+        position: relative;
+        margin-right: 5em;
+    }
+    .nav-links{
+        display: block;
+        margin-top: 5vh;
+        color: white;
+    }
+    .nav-links a{
+        transition: color 0.2s ease-out;
+        color: white;
+        font-size: 1.1em;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .intro{
+        font-size: 2em;
+    }
+    .about{
+       padding: 4em 20%;
+       font-size: 1.3em;
+    }
+    .motorsport{
+        height: 85vh;
+        padding-left: 5em;
+        font-size: 2em;
+    }
+    .motorsport p{
+        font-size: 0.8em;
+    }
+    .motorsport a{
+        font-size: 0.6em;
+    }
+    .motorsport h1{
+        width: 50%;
+    }
+    .share-sctn{
+        font-size: 1.1em;
+        padding: 5em;
+    }
+}
+@media  (min-width: 768px){
+    .nav-button{
+        position: relative;
+        cursor: pointer;
+        justify-content: flex-end;
+        padding-bottom: 0.5em;
+    }
+    .nav-button::before{
+        transition: color 0.2s ease-out;
+        position: absolute;
+        left: 150%;
+        top: -40%;
+        color: white;
+        content: "Menu";
+        width: 100%;
+        font-size: 1.1em;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .shop::before{
+        position: absolute;
+        left: 150%;
+        top: -10%;
+        color: white;
+        content: "Your selection";
+        white-space: nowrap;
+        width: 100%;
+        font-size: 1.1em;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .search::before{
+        position: absolute;
+        left: 150%;
+        top: -10%;
+        color: white;
+        content: "Search";
+        width: 100%;
+        font-size: 1.1em;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .logo img{
+        width: 7em;
+        height: 4em;
+    }
+    nav{
+        padding: 0 3em;
+        padding-right: 10em;
+    }
+    .right-nav{
+        gap: 5em;
+    }
+
+}
+
